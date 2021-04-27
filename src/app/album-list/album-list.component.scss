@@ -1,0 +1,41 @@
+@import "../../variables";
+
+.overview {
+  width: 100%;
+  height: 60px;
+  box-sizing: border-box;
+  border-bottom: 1px solid $dark-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $light-color;
+}
+.detail {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .card {
+    width: 160px;
+    box-sizing: border-box;
+    border: 1px solid $dark-color;
+    background-color: $light-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    &:hover {
+      transform: translateY(-5px) scale(1.005) translateZ(0);
+      box-shadow: 5px 5px 3px $shadow-color;
+    }
+    .cover {
+      width: 100%;
+      border-radius: 5px 5px 0 0;
+    }
+    .info {
+      font: bold 0.8rem Arial, sans-serif;
+    }
+    .favorite {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<header id="header">
+  <div class="search-bar pl-3 pr-2">
+    <input
+      type="text"
+      class="search-input m-0 p-0"
+      placeholder="Search..."
+      [(ngModel)]="inputValue"
+      (keyup.enter)="onEnter()"
+    />
+    <svg class="search-icon p-0" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+  </div>
+</header>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

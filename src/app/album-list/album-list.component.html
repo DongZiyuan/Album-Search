@@ -1,0 +1,43 @@
+<div id="container">
+  <div class="overview">
+    <b>Number of Results:</b>
+    <b class="ml-5">Page Size:</b>
+    <select class="form-control ml-1 col-1" [(ngModel)]="pageSize">
+      <option>10</option>
+      <option>25</option>
+      <option>50</option>
+      <option>100</option>
+      <option>200</option>
+      <option>500</option>
+    </select>
+  </div>
+  <div class="detail">
+    <div
+      class="card m-3"
+      *ngFor="
+        let album of (albums$ | async) | scaleSize: pageSize;
+        let i = index
+      "
+    >
+      <img class="cover" [src]="album.cover" />
+      <p class="info mt-3 mb-0 text-center">{{ album.artist }}</p>
+      <p class="info mt-3 mb-0 text-center">{{ album.collection }}</p>
+      <div class="favorite btn-group btn-group-sm mt-auto mb-0">
+        <button
+          class="btn shadow-none"
+          [ngClass]="{ 'btn-secondary': album.like === 1 }"
+          (click)="vote(i, 1)"
+        >
+          Like
+        </button>
+        <button
+          class="btn shadow-none"
+          [ngClass]="{ 'btn-secondary': album.like === -1 }"
+          (click)="vote(i, -1)"
+        >
+          Dislike
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

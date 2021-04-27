@@ -1,0 +1,53 @@
+@import "../variables";
+$header-height: 90px;
+$search-bar-height: 30px;
+
+#header {
+  position: fixed;
+  top: 0;
+  height: $header-height;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: $dark-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  .search-bar {
+    width: 21%;
+    height: $search-bar-height;
+    box-sizing: border-box;
+    background-color: $light-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: width 0.1s linear;
+    border-radius: 0.5 * $search-bar-height;
+    &:focus-within {
+      width: 28%;
+      transition: width 0.1s linear;
+    }
+    .search-input {
+      width: 90%;
+      height: 100%;
+      border: none;
+      outline: none;
+      background-color: $light-color;
+    }
+    .search-icon {
+      height: 90%;
+      fill: none;
+      stroke: grey;
+      stroke-width: 2px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  }
+}
+
+.content {
+  position: relative;
+  top: $header-height;
+  width: 100%;
+  box-sizing: border-box;
+}
