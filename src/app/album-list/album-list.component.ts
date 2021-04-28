@@ -36,7 +36,6 @@ export class AlbumListComponent implements OnInit {
       )
       .subscribe(
         (albums: Album[]) => {
-          console.log(albums);
           this.store.dispatch(setAlbums({ albums: albums }));
           //@ts-ignore
           console.log('after dispatch', this.store.source._value);
