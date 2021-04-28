@@ -25,6 +25,8 @@ export class AppComponent {
   }
 
   onEnter(): void {
+    //@ts-ignore
+    console.log('before dispatch action',this.store.source._value.app.query);
     this.store.dispatch(setQueryArtist({ artist: this.inputValue }));
     this.router.navigate(['albumlist'], {
       relativeTo: this.route,

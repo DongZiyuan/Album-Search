@@ -15,8 +15,8 @@
     <div
       class="card m-3"
       *ngFor="
-        let album of (albums$ | async) | scaleSize: pageSize;
-        let i = index
+        let album of (albums$ | async | scaleSize: pageSize);
+        let i = index;
       "
     >
       <img class="cover" [src]="album.cover" />

@@ -4,17 +4,15 @@ import { QueryFormComponent } from './components/query-form/query-form.component
 import { AuthGuardService } from './services/auth-guard.service';
 import { DeactivateGuard } from './services/can-deactive-guard.service';
 
+
+//app-routing.modules.ts
 const routes: Routes = [
-  {
-    path: '',
-    component: QueryFormComponent,
-    canDeactivate: [DeactivateGuard],
-    pathMatch: 'full',
-  },
   {
     path: 'albumlist',
     loadChildren: () =>
-      import('./album-list/album-list.module').then((m) => m.AlbumListModule),
+      import('./album-list/album-list.module').then((m) => {
+        return m.AlbumListModule
+      }),
     canActivate: [AuthGuardService],
   },
 ];

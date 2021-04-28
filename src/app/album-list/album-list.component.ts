@@ -17,6 +17,8 @@ export class AlbumListComponent implements OnInit {
   albums$!: Observable<Album[]>;
   albums: Album[] = [];
   pageSize = 500;
+  
+
 
   constructor(
     private route: ActivatedRoute,
@@ -34,12 +36,14 @@ export class AlbumListComponent implements OnInit {
       )
       .subscribe(
         (albums: Album[]) => {
+          console.log(albums);
           this.store.dispatch(setAlbums({ albums: albums }));
+          //@ts-ignore
+          console.log('after dispatch', this.store.source._value);
         },
         (err) => console.log(err),
         () => httpSub.unsubscribe()
       );
-    
     this.albums$ = this.store.select((state: State) => {
       return Object.values(state.app.albums);
     });

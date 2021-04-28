@@ -9,7 +9,7 @@ import {
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { CanComponentDeactivate } from 'src/app/services/can-deactive-guard.service';
-import { setQueryEntity, setQueryPrice } from 'src/app/store/app.actions';
+// import { setQueryEntity, setQueryPrice } from 'src/app/store/app.actions';
 import { State } from 'src/app/store/app.selector';
 import { passwordMatching } from '../../services/password-matching.service';
 import { validSkill } from '../../services/valid-skill.service';
@@ -60,10 +60,10 @@ export class QueryFormComponent implements OnInit, CanComponentDeactivate {
   }
 
   onSubmit(): void {
-    this.store.dispatch(setQueryEntity(this.entityControl.value));
-    this.store.dispatch(setQueryPrice(this.priceControl.value));
-    this.skillsControl.clear();
-    this.queryForm.reset();
+    // this.store.dispatch(setQueryEntity(this.entityControl.value));
+    // this.store.dispatch(setQueryPrice(this.priceControl.value));
+    // this.skillsControl.clear();
+    // this.queryForm.reset();
   }
 
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {

@@ -5,6 +5,7 @@ export type AppState = {
   loggedIn: boolean;
   query: Query;
   albums: Album[];
+  // pageSize: number // config page number
 };
 
 export type State = {
