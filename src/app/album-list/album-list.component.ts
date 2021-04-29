@@ -17,8 +17,7 @@ export class AlbumListComponent implements OnInit {
   albums$!: Observable<Album[]>;
   albums: Album[] = [];
   pageSize = 500;
-  
-
+  myAlbums = this.store.select((state: State) => state.app.albums)
 
   constructor(
     private route: ActivatedRoute,
@@ -27,22 +26,25 @@ export class AlbumListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const httpSub: Subscription = this.route.queryParams
-      .pipe(
-        mergeMap((qp: Params) => {
-          this.store.dispatch(setQueryArtist({ artist: qp['artist'] }));
-          return this.hs.getAlbums(qp['artist']);
-        })
-      )
-      .subscribe(
-        (albums: Album[]) => {
-          this.store.dispatch(setAlbums({ albums: albums }));
-          //@ts-ignore
-          console.log('after dispatch', this.store.source._value);
-        },
-        (err) => console.log(err),
-        () => httpSub.unsubscribe()
-      );
+    console.log(this.myAlbums);
+    const httpSub: Subscription = this.route.queryParams.subscribe(qp => {
+      this.store.dispatch(setQueryArtist({ artist: qp['artist'] }));
+    })
+      // .pipe(
+      //   mergeMap((qp: Params) => {
+      //     this.store.dispatch(setQueryArtist({ artist: qp['artist'] }));
+      //     return this.hs.getAlbums(qp['artist']);
+      //   })
+      // )
+      // .subscribe(
+      //   (albums: Album[]) => {
+      //     this.store.dispatch(setAlbums({ albums: albums }));
+      //     //@ts-ignore
+      //     console.log('after dispatch', this.store.source._value);
+      //   },
+      //   (err) => console.log(err),
+      //   () => httpSub.unsubscribe()
+      // );
     this.albums$ = this.store.select((state: State) => {
       return Object.values(state.app.albums);
     });

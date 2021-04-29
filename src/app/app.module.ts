@@ -8,6 +8,8 @@ import { SharedModule } from './shared/shared.module';
 import { QueryFormComponent } from './components/query-form/query-form.component';
 import { StoreModule } from '@ngrx/store';
 import { AppReducer } from './store/app.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AlbumsEffects } from './store/app.effect';
 
 @NgModule({
   declarations: [AppComponent, QueryFormComponent],
@@ -19,6 +21,7 @@ import { AppReducer } from './store/app.reducer';
     FormsModule,
     SharedModule,
     StoreModule.forRoot({ app: AppReducer }),
+    EffectsModule.forRoot([AlbumsEffects])
   ],
   providers: [],
   bootstrap: [AppComponent],

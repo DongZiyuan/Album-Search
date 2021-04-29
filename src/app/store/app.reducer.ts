@@ -26,6 +26,13 @@ export const AppReducer = createReducer(
       albums: albums,
     })
   ),
+  on(
+    AppActions.loadAlbumsSuccess,
+    (state, {albums}): AppState => ({
+      ...state,
+      albums: albums
+    })
+  )
   // on(
   //   AppActions.voteAlbum,
   //   (state: AppState, { id, score }): AppState => {

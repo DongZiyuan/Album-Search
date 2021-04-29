@@ -6,9 +6,19 @@ export const setQueryArtist = createAction(
   props<{ artist: string }>()
 );
 
+export const loadAlbumsSuccess = createAction(
+  '[Albums API] Loaded Success',
+  props<{albums: Album[]}>()
+);
+
 export const setAlbums = createAction(
   '[AlbumListComponent]',
   props<{ albums: Album[] }>()
+);
+
+export const getAlbums = createAction(
+  '[Album Component] Load Albums',
+  props<{ artist: string}>()
 );
 
 // export const voteAlbum = createAction(

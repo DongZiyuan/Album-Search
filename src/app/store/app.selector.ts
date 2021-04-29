@@ -3,7 +3,7 @@ import { Query } from '../shared/models/query';
 
 export type AppState = {
   loggedIn: boolean;
-  query: Query;
+  query: Query; 
   albums: Album[];
   // pageSize: number // config page number
 };
